@@ -43,6 +43,9 @@
     
     /// 上半部背景
     UIImage* topBgImage = [UIImage imageNamed:@"top_half_bg.png"];
+    NSLog(@"topBgImage.resizingMode=%zd, topBgImage.capInsets=%@.",
+          topBgImage.resizingMode, // 默认为UIImageResizingModeTile
+          NSStringFromUIEdgeInsets(topBgImage.capInsets)); // 默认为UIEdgeInsetsZero
     // topBgImage = [topBgImage resizableImageWithCapInsets:TOP_STRETCH_CAP_INSETS  resizingMode:UIImageResizingModeStretch];
     //  stretching the is 1 x 1 pixel region, provides the fastest performance.
     UIEdgeInsets topBgEdgeInset = UIEdgeInsetsMake(topBgImage.size.width/2, topBgImage.size.height/2,
