@@ -128,7 +128,7 @@
     //        图标右侧留空+标题左侧留空=8pt间距。
     // [_btnRightAgainst setTitleEdgeInsets:UIEdgeInsetsMake(0, 8, 0, 0)];
     // [_btnRightAgainst setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 8)];
-    // test4：实现左文字有图片
+    // test4：实现左文字右图标
     CGRect rightBtnTileRect = [rightBtnTile boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
                                                          options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                                       attributes:@{NSFontAttributeName:titleFont}
@@ -148,7 +148,7 @@
     //         图标继续右移4pt，左侧标题和右侧图标间距8pt
     [_btnRightAgainst setImageEdgeInsets:UIEdgeInsetsMake(0, rightBtnTitleWidth+4, 0, -rightBtnTitleWidth-4)];
     
-    //// 默认选中左胶囊【二维码】
+    //// 默认选中左胶囊【赞同】
     _btnLeftAgree.selected = YES;
 }
 
