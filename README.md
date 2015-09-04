@@ -22,4 +22,5 @@ demo for stretchable/resizable UIImage
 3.选择右胶囊按钮，背景变蓝，字体变白，图标由大拇指向下变为一朵枯萎。
 ![选择右胶囊按钮](https://github.com/fan2/resizableImage/blob/master/ScreenShots/3-%E9%80%89%E6%8B%A9%E5%8F%B3%E8%83%B6%E5%9B%8A%E6%8C%89%E9%92%AE.png)
 
-
+4.增加纵向UIImageView胶囊贴图效果：
+![增加纵向UIImageView胶囊](https://github.com/fan2/resizableImage/blob/master/ScreenShots/5-%E7%BA%B5%E5%90%91%E8%83%B6%E5%9B%8A%E8%B4%B4%E5%9B%BE%E6%95%88%E6%9E%9C.png)
