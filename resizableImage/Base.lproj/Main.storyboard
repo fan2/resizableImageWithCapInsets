@@ -39,22 +39,46 @@
                                     <action selector="onRightBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bfX-Yw-3Md"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-pQ-Xlc" userLabel="topImageView">
+                                <rect key="frame" x="180" y="20" width="240" height="72"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Otw-69-CbV"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-xB-udW" userLabel="botImageView">
+                                <rect key="frame" x="180" y="95" width="240" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="Yix-k6-R3R"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8sH-xB-udW" firstAttribute="top" secondItem="l8q-pQ-Xlc" secondAttribute="bottom" constant="1" id="6NY-XS-xpC"/>
+                            <constraint firstItem="8sH-xB-udW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="9fb-x4-Gj5"/>
                             <constraint firstItem="PPB-R8-0qC" firstAttribute="height" secondItem="ae0-ej-Hje" secondAttribute="height" id="B0b-xH-S7Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PPB-R8-0qC" secondAttribute="trailing" constant="20" id="CXb-tx-lAA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8sH-xB-udW" secondAttribute="trailing" constant="40" id="GAP-gL-pMf"/>
+                            <constraint firstItem="8sH-xB-udW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HCF-eL-cpJ"/>
+                            <constraint firstItem="l8q-pQ-Xlc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="JEA-J2-wmQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l8q-pQ-Xlc" secondAttribute="trailing" constant="40" id="Z5x-WS-RRA"/>
                             <constraint firstItem="PPB-R8-0qC" firstAttribute="top" secondItem="ae0-ej-Hje" secondAttribute="top" id="aiC-My-6h2"/>
                             <constraint firstItem="ae0-ej-Hje" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="ep4-8k-jmh"/>
                             <constraint firstItem="PPB-R8-0qC" firstAttribute="leading" secondItem="ae0-ej-Hje" secondAttribute="trailing" id="f4U-hs-9O6"/>
+                            <constraint firstItem="l8q-pQ-Xlc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g7n-j1-UPW"/>
                             <constraint firstItem="PPB-R8-0qC" firstAttribute="width" secondItem="ae0-ej-Hje" secondAttribute="width" id="odb-7u-lGp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PPB-R8-0qC" secondAttribute="bottom" constant="40" id="qlr-Kq-Gn1"/>
+                            <constraint firstItem="l8q-pQ-Xlc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="wRN-jv-mKP"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="botImgView" destination="8sH-xB-udW" id="bvx-jb-LjP"/>
                         <outlet property="btnLeftAgree" destination="ae0-ej-Hje" id="auf-bN-tfO"/>
                         <outlet property="btnRightAgainst" destination="PPB-R8-0qC" id="Cbw-nB-92g"/>
+                        <outlet property="topImgView" destination="l8q-pQ-Xlc" id="Qux-gF-sux"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

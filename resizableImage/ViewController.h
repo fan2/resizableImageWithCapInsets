@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLeftAgree;
 @property (weak, nonatomic) IBOutlet UIButton *btnRightAgainst;
+@property (weak, nonatomic) IBOutlet UIImageView *topImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *botImgView;
 
 - (IBAction)onLeftBtnClick:(id)sender;
 - (IBAction)onRightBtnClick:(id)sender;

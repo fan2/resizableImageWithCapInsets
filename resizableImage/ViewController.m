@@ -10,10 +10,22 @@
 
 // RGB颜色
 #define RGBCOLOR(r,g,b)             [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-// 左边胶囊拉伸矩形区域
-#define LEFT_STRETCH_CAP_INSETS     UIEdgeInsetsMake(5,20,5,4)
-// 右边胶囊拉伸矩形区域
-#define RIGHT_STRETCH_CAP_INSETS    UIEdgeInsetsMake(5,4,5,20)
+
+// 圆角半径为7pixel=3.5point
+#define IMG_CORNER_RADIUS           4
+// top_half_bg@2x.png拉伸矩形区域
+#define TOP_STRETCH_CAP_INSETS      UIEdgeInsetsMake(IMG_CORNER_RADIUS,IMG_CORNER_RADIUS,0,IMG_CORNER_RADIUS)
+// bot_half_bg@2x.png拉伸矩形区域
+#define BOT_STRETCH_CAP_INSETS      UIEdgeInsetsMake(0,IMG_CORNER_RADIUS,IMG_CORNER_RADIUS,IMG_CORNER_RADIUS)
+
+// 圆角半径为40pixel=20pt
+#define BTN_CORNER_RADIUS           20
+// 椭圆背景宽度
+#define BTN_BGIMG_WIDTH             25
+// 左边胶囊拉伸矩形区域，保留左椭圆及右边框（上下各保留2pt），一个pt窄带拉伸
+#define LEFT_STRETCH_CAP_INSETS     UIEdgeInsetsMake(2,BTN_CORNER_RADIUS,2,BTN_BGIMG_WIDTH-BTN_CORNER_RADIUS-1)
+// 右边胶囊拉伸矩形区域，保留右椭圆及左边框（上下各保留2pt），一个pt窄带拉伸
+#define RIGHT_STRETCH_CAP_INSETS    UIEdgeInsetsMake(2,BTN_BGIMG_WIDTH-BTN_CORNER_RADIUS-1,2,BTN_CORNER_RADIUS)
 
 
 
@@ -29,6 +41,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    /// 上半部背景
+    UIImage* topBgImage = [UIImage imageNamed:@"top_half_bg.png"];
+    // topBgImage = [topBgImage resizableImageWithCapInsets:TOP_STRETCH_CAP_INSETS  resizingMode:UIImageResizingModeStretch];
+    //  stretching the is 1 x 1 pixel region, provides the fastest performance.
+    UIEdgeInsets topBgEdgeInset = UIEdgeInsetsMake(topBgImage.size.width/2, topBgImage.size.height/2,
+                                                  topBgImage.size.width/2-1, topBgImage.size.height/2-1);
+    topBgImage = [topBgImage resizableImageWithCapInsets:topBgEdgeInset];
+    _topImgView.image = topBgImage;
+    
+    /// 下半部背景
+    UIImage* botBgImage = [UIImage imageNamed:@"bot_half_bg.png"];
+    botBgImage = [botBgImage resizableImageWithCapInsets:BOT_STRETCH_CAP_INSETS]; // UIImageResizingModeTile
+    _botImgView.image = botBgImage;
+    
     UIFont* titleFont = [UIFont systemFontOfSize:15];
     NSString* leftBtnTitle = @"赞同";
     NSString* rightBtnTile = @"反对";
@@ -36,10 +62,15 @@
     //// 左侧胶囊按钮，constaints固定高度为40pt
     // （1）背景
     UIImage* leftNorBgImg = [UIImage imageNamed:@"left_barbtn_bg_normal.png"];
-    leftNorBgImg = [leftNorBgImg resizableImageWithCapInsets:LEFT_STRETCH_CAP_INSETS resizingMode:UIImageResizingModeStretch];
+    // leftNorBgImg = [leftNorBgImg resizableImageWithCapInsets:LEFT_STRETCH_CAP_INSETS]; // tiling
+    //  stretching the is 1 x 1 pixel region, provides the fastest performance.
+    UIEdgeInsets leftBgEdgeInset = UIEdgeInsetsMake(leftNorBgImg.size.width/2, leftNorBgImg.size.height/2,
+                                                    leftNorBgImg.size.width/2-1, leftNorBgImg.size.height/2-1);
+    leftNorBgImg = [leftNorBgImg resizableImageWithCapInsets:leftBgEdgeInset];
     [_btnLeftAgree setBackgroundImage:leftNorBgImg forState:UIControlStateNormal];
+    
     UIImage* leftSelBgImg = [UIImage imageNamed:@"left_barbtn_bg_selected.png"];
-    leftSelBgImg = [leftSelBgImg resizableImageWithCapInsets:LEFT_STRETCH_CAP_INSETS resizingMode:UIImageResizingModeStretch];
+    leftSelBgImg = [leftSelBgImg resizableImageWithCapInsets:LEFT_STRETCH_CAP_INSETS]; // tiling
     [_btnLeftAgree setBackgroundImage:leftSelBgImg forState:UIControlStateSelected];
     // （2）图标（adjustsImageWhenHighlighted），默认UIViewContentModeScaleToFill
     UIImage* leftNorImg =  [UIImage imageNamed:@"left_barbtn_agree_img_normal.tiff"];
@@ -62,6 +93,7 @@
     UIImage* rightNorBgImg = [UIImage imageNamed:@"right_barbtn_bg_normal.png"];
     rightNorBgImg = [rightNorBgImg resizableImageWithCapInsets:RIGHT_STRETCH_CAP_INSETS resizingMode:UIImageResizingModeStretch];
     [_btnRightAgainst setBackgroundImage:rightNorBgImg forState:UIControlStateNormal];
+    
     UIImage* rightSelBgImg = [UIImage imageNamed:@"right_barbtn_bg_selected.png"];
     rightSelBgImg = [rightSelBgImg resizableImageWithCapInsets:RIGHT_STRETCH_CAP_INSETS resizingMode:UIImageResizingModeStretch];
     [_btnRightAgainst setBackgroundImage:rightSelBgImg forState:UIControlStateSelected];
