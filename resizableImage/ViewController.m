@@ -9,23 +9,28 @@
 #import "ViewController.h"
 
 // RGB颜色
-#define RGBCOLOR(r,g,b)             [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define RGBCOLOR(r,g,b)                 [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 
-// 圆角半径为7pixel=3.5point
-#define IMG_CORNER_RADIUS           4
+// 纵向ImageView圆角半径为7pixel=3.5point
+#define IMGVIEW_CORNER_RADIUS           4
 // top_half_bg@2x.png拉伸矩形区域
-#define TOP_STRETCH_CAP_INSETS      UIEdgeInsetsMake(IMG_CORNER_RADIUS,IMG_CORNER_RADIUS,0,IMG_CORNER_RADIUS)
+#define TOP_IMGVIEW_CAPINSETS           UIEdgeInsetsMake(IMGVIEW_CORNER_RADIUS,IMGVIEW_CORNER_RADIUS,0,IMGVIEW_CORNER_RADIUS)
 // bot_half_bg@2x.png拉伸矩形区域
-#define BOT_STRETCH_CAP_INSETS      UIEdgeInsetsMake(0,IMG_CORNER_RADIUS,IMG_CORNER_RADIUS,IMG_CORNER_RADIUS)
+#define BOT_IMGVIEW_CAPINSETS           UIEdgeInsetsMake(0,IMGVIEW_CORNER_RADIUS,IMGVIEW_CORNER_RADIUS,IMGVIEW_CORNER_RADIUS)
 
-// 圆角半径为40pixel=20pt
-#define BTN_CORNER_RADIUS           20
+// 登录按钮圆角半径为14pixel=7pt
+#define LOGIN_BTN_CORNER_RADIUS         7
+// 上下左右各保留7pt，scale/resize the interior area through tile or stretch
+#define LOGIN_BTN_CAPINSETS             UIEdgeInsetsMake(LOGIN_BTN_CORNER_RADIUS,LOGIN_BTN_CORNER_RADIUS,LOGIN_BTN_CORNER_RADIUS,LOGIN_BTN_CORNER_RADIUS)
+
+// 胶囊按钮贴图圆角半径为40pixel=20pt
+#define BARBTN_CORNER_RADIUS            20
 // 椭圆背景宽度
-#define BTN_BGIMG_WIDTH             25
+#define BARBTN_BGIMG_WIDTH              25
 // 左边胶囊拉伸矩形区域，保留左椭圆及右边框（上下各保留2pt），一个pt窄带拉伸
-#define LEFT_STRETCH_CAP_INSETS     UIEdgeInsetsMake(2,BTN_CORNER_RADIUS,2,BTN_BGIMG_WIDTH-BTN_CORNER_RADIUS-1)
+#define LEFT_BARBTN_CAPINSETS           UIEdgeInsetsMake(2,BARBTN_CORNER_RADIUS,2,BARBTN_BGIMG_WIDTH-BARBTN_CORNER_RADIUS-1)
 // 右边胶囊拉伸矩形区域，保留右椭圆及左边框（上下各保留2pt），一个pt窄带拉伸
-#define RIGHT_STRETCH_CAP_INSETS    UIEdgeInsetsMake(2,BTN_BGIMG_WIDTH-BTN_CORNER_RADIUS-1,2,BTN_CORNER_RADIUS)
+#define RIGHT_BARBTN_CAPINSETS          UIEdgeInsetsMake(2,BARBTN_BGIMG_WIDTH-BARBTN_CORNER_RADIUS-1,2,BARBTN_CORNER_RADIUS)
 
 
 
@@ -41,12 +46,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    /**************************************************************************/
+    //// 纵向ImageView贴图示例
+    /**************************************************************************/
     /// 上半部背景
     UIImage* topBgImage = [UIImage imageNamed:@"top_half_bg.png"];
     NSLog(@"topBgImage.resizingMode=%zd, topBgImage.capInsets=%@.",
           topBgImage.resizingMode, // 默认为UIImageResizingModeTile
           NSStringFromUIEdgeInsets(topBgImage.capInsets)); // 默认为UIEdgeInsetsZero
-    // topBgImage = [topBgImage resizableImageWithCapInsets:TOP_STRETCH_CAP_INSETS  resizingMode:UIImageResizingModeStretch];
+    // topBgImage = [topBgImage resizableImageWithCapInsets:TOP_IMGVIEW_CAPINSETS  resizingMode:UIImageResizingModeStretch];
     //  stretching the is 1 x 1 pixel region, provides the fastest performance.
     UIEdgeInsets topBgEdgeInset = UIEdgeInsetsMake(topBgImage.size.width/2, topBgImage.size.height/2,
                                                   topBgImage.size.width/2-1, topBgImage.size.height/2-1);
@@ -55,17 +63,66 @@
     
     /// 下半部背景
     UIImage* botBgImage = [UIImage imageNamed:@"bot_half_bg.png"];
-    botBgImage = [botBgImage resizableImageWithCapInsets:BOT_STRETCH_CAP_INSETS]; // UIImageResizingModeTile
+    botBgImage = [botBgImage resizableImageWithCapInsets:BOT_IMGVIEW_CAPINSETS]; // UIImageResizingModeTile
     _botImgView.image = botBgImage;
     
+    /**************************************************************************/
+    //// 登录按钮示例
+    /**************************************************************************/
+    UIFont* loginBtnFont = [UIFont boldSystemFontOfSize:16];
+    NSString* loginBtnTitle = @"登录";
+    // （1）背景
+    UIImage* loginBtnBg = [UIImage imageNamed:@"login_btn_bg.tiff"];
+    // 按钮高度大于背景贴图，直接stretching the interior 1-pixel region会有问题!
+    // UIEdgeInsets loginBtnBgEdgeInset = UIEdgeInsetsMake(loginBtnBg.size.width/2, loginBtnBg.size.height/2, loginBtnBg.size.width/2-1, loginBtnBg.size.height/2-1);
+    // tiling the interior area not covered by the cap
+    loginBtnBg = [loginBtnBg resizableImageWithCapInsets:LOGIN_BTN_CAPINSETS];
+    [_btnLogin setBackgroundImage:loginBtnBg forState:UIControlStateNormal];
+    // （2）标题，默认titleLabel.textAlignment = NSTextAlignmentCenter
+    _btnLogin.titleLabel.font = loginBtnFont;
+    [_btnLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btnLogin setTitle:loginBtnTitle forState:UIControlStateNormal];
+    
+    /**************************************************************************/
+    //// 聊天气泡示例
+    /**************************************************************************/
+    UIFont* msgFont = [UIFont systemFontOfSize:14];
+    NSString* friendMsg = @"😀今天晚上有空吗，要不要一起去海边兜兜风？";
+    NSString* myselfMsg = @"😘好的。你大概几点过来呢？";
+    _friendBubbleMsg.textAlignment = NSTextAlignmentLeft;
+    _friendBubbleMsg.numberOfLines = 0;
+    // _friendBubbleMsg.lineBreakMode = NSLineBreakByWordWrapping; // default
+    _friendBubbleMsg.font = msgFont;
+    _friendBubbleMsg.text = friendMsg;
+    UIImage* friendBubbleBg = [UIImage imageNamed:@"Chat_Bubble_Friend.tiff"];
+    // 左侧向下拉伸会出现三个箭头！！！
+    // friendBubbleBg = [friendBubbleBg resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 5)];
+    // 保留箭头所在上半部分，向下向右填充
+    friendBubbleBg = [friendBubbleBg resizableImageWithCapInsets:UIEdgeInsetsMake(24, 15, 5, 5)];
+    _friendBubbleImgView.image = friendBubbleBg;
+    
+    _myselfBubbleMsg.textAlignment = NSTextAlignmentLeft;
+    _myselfBubbleMsg.numberOfLines = 0;
+    // _myselfBubbleMsg.lineBreakMode = NSLineBreakByWordWrapping; // default
+    _myselfBubbleMsg.font = msgFont;
+    _myselfBubbleMsg.text = myselfMsg;
+    UIImage* myselfBubbleBg = [UIImage imageNamed:@"Chat_Bubble_Myself.tiff"];
+    // 左侧向下拉伸会出现三个箭头！！！
+    // myselfBubbleBg = [myselfBubbleBg resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 15)];
+    // 保留箭头所在上半部分，向下向右填充
+    myselfBubbleBg = [myselfBubbleBg resizableImageWithCapInsets:UIEdgeInsetsMake(24, 5, 5, 15)];
+    _myselfBubbleImgView.image = myselfBubbleBg;
+    
+    /**************************************************************************/
+    //// 横向胶囊按钮示例
+    /**************************************************************************/
     UIFont* titleFont = [UIFont systemFontOfSize:15];
     NSString* leftBtnTitle = @"赞同";
     NSString* rightBtnTile = @"反对";
-    
-    //// 左侧胶囊按钮，constaints固定高度为40pt
+    /// 左侧胶囊按钮，constaints固定高度为40pt
     // （1）背景
     UIImage* leftNorBgImg = [UIImage imageNamed:@"left_barbtn_bg_normal.png"];
-    // leftNorBgImg = [leftNorBgImg resizableImageWithCapInsets:LEFT_STRETCH_CAP_INSETS]; // tiling
+    // leftNorBgImg = [leftNorBgImg resizableImageWithCapInsets:LEFT_BARBTN_CAPINSETS]; // tiling
     //  stretching the is 1 x 1 pixel region, provides the fastest performance.
     UIEdgeInsets leftBgEdgeInset = UIEdgeInsetsMake(leftNorBgImg.size.width/2, leftNorBgImg.size.height/2,
                                                     leftNorBgImg.size.width/2-1, leftNorBgImg.size.height/2-1);
@@ -73,7 +130,7 @@
     [_btnLeftAgree setBackgroundImage:leftNorBgImg forState:UIControlStateNormal];
     
     UIImage* leftSelBgImg = [UIImage imageNamed:@"left_barbtn_bg_selected.png"];
-    leftSelBgImg = [leftSelBgImg resizableImageWithCapInsets:LEFT_STRETCH_CAP_INSETS]; // tiling
+    leftSelBgImg = [leftSelBgImg resizableImageWithCapInsets:LEFT_BARBTN_CAPINSETS]; // tiling
     [_btnLeftAgree setBackgroundImage:leftSelBgImg forState:UIControlStateSelected];
     // （2）图标（adjustsImageWhenHighlighted），默认UIViewContentModeScaleToFill
     UIImage* leftNorImg =  [UIImage imageNamed:@"left_barbtn_agree_img_normal.tiff"];
@@ -91,14 +148,14 @@
     // 默认图标在左侧，标题在右侧，整体居中。这里给标题左侧预留4pt间隔，与图标间距8pt。
     [_btnLeftAgree setTitleEdgeInsets:UIEdgeInsetsMake(0, 8, 0, 0)];
     
-    //// 右侧胶囊按钮，constaints固定高度为40pt
+    /// 右侧胶囊按钮，constaints固定高度为40pt
     // （1）背景
     UIImage* rightNorBgImg = [UIImage imageNamed:@"right_barbtn_bg_normal.png"];
-    rightNorBgImg = [rightNorBgImg resizableImageWithCapInsets:RIGHT_STRETCH_CAP_INSETS resizingMode:UIImageResizingModeStretch];
+    rightNorBgImg = [rightNorBgImg resizableImageWithCapInsets:RIGHT_BARBTN_CAPINSETS resizingMode:UIImageResizingModeStretch];
     [_btnRightAgainst setBackgroundImage:rightNorBgImg forState:UIControlStateNormal];
     
     UIImage* rightSelBgImg = [UIImage imageNamed:@"right_barbtn_bg_selected.png"];
-    rightSelBgImg = [rightSelBgImg resizableImageWithCapInsets:RIGHT_STRETCH_CAP_INSETS resizingMode:UIImageResizingModeStretch];
+    rightSelBgImg = [rightSelBgImg resizableImageWithCapInsets:RIGHT_BARBTN_CAPINSETS resizingMode:UIImageResizingModeStretch];
     [_btnRightAgainst setBackgroundImage:rightSelBgImg forState:UIControlStateSelected];
     // （2）图标（adjustsImageWhenHighlighted），UIViewContentModeScaleToFill
     UIImage* rightNorImg = [UIImage imageNamed:@"left_barbtn_against_img_normal.tiff"];
@@ -151,7 +208,7 @@
     //         图标继续右移4pt，左侧标题和右侧图标间距8pt
     [_btnRightAgainst setImageEdgeInsets:UIEdgeInsetsMake(0, rightBtnTitleWidth+4, 0, -rightBtnTitleWidth-4)];
     
-    //// 默认选中左胶囊【赞同】
+    /// 默认选中左胶囊【赞同】
     _btnLeftAgree.selected = YES;
 }
 

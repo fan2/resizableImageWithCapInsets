@@ -25,6 +25,9 @@
 		228C528E1B98957D00A9D604 /* left_barbtn_agree_img_selected@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 228C528A1B98957D00A9D604 /* left_barbtn_agree_img_selected@2x.tiff */; settings = {ASSET_TAGS = (); }; };
 		22B661CF1B99DE41003E7774 /* bot_half_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B661CD1B99DE41003E7774 /* bot_half_bg@2x.png */; settings = {ASSET_TAGS = (); }; };
 		22B661D01B99DE41003E7774 /* top_half_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22B661CE1B99DE41003E7774 /* top_half_bg@2x.png */; settings = {ASSET_TAGS = (); }; };
+		22EA331B1B9A8F4200399811 /* Chat_Bubble_Friend@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22EA33181B9A8F4200399811 /* Chat_Bubble_Friend@2x.tiff */; settings = {ASSET_TAGS = (); }; };
+		22EA331C1B9A8F4200399811 /* Chat_Bubble_Myself@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22EA33191B9A8F4200399811 /* Chat_Bubble_Myself@2x.tiff */; settings = {ASSET_TAGS = (); }; };
+		22EA331D1B9A8F4200399811 /* login_btn_bg@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 22EA331A1B9A8F4200399811 /* login_btn_bg@2x.tiff */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		228C528A1B98957D00A9D604 /* left_barbtn_agree_img_selected@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "left_barbtn_agree_img_selected@2x.tiff"; path = "resource/left_barbtn_agree_img_selected@2x.tiff"; sourceTree = "<group>"; };
 		22B661CD1B99DE41003E7774 /* bot_half_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bot_half_bg@2x.png"; path = "resource/bot_half_bg@2x.png"; sourceTree = "<group>"; };
 		22B661CE1B99DE41003E7774 /* top_half_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top_half_bg@2x.png"; path = "resource/top_half_bg@2x.png"; sourceTree = "<group>"; };
+		22EA33181B9A8F4200399811 /* Chat_Bubble_Friend@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "Chat_Bubble_Friend@2x.tiff"; path = "resource/Chat_Bubble_Friend@2x.tiff"; sourceTree = "<group>"; };
+		22EA33191B9A8F4200399811 /* Chat_Bubble_Myself@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "Chat_Bubble_Myself@2x.tiff"; path = "resource/Chat_Bubble_Myself@2x.tiff"; sourceTree = "<group>"; };
+		22EA331A1B9A8F4200399811 /* login_btn_bg@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "login_btn_bg@2x.tiff"; path = "resource/login_btn_bg@2x.tiff"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,9 @@
 		228C52641B97FBBA00A9D604 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				22EA33181B9A8F4200399811 /* Chat_Bubble_Friend@2x.tiff */,
+				22EA33191B9A8F4200399811 /* Chat_Bubble_Myself@2x.tiff */,
+				22EA331A1B9A8F4200399811 /* login_btn_bg@2x.tiff */,
 				22B661CD1B99DE41003E7774 /* bot_half_bg@2x.png */,
 				22B661CE1B99DE41003E7774 /* top_half_bg@2x.png */,
 				228C52871B98957D00A9D604 /* left_barbtn_against_img_normal@2x.tiff */,
@@ -288,11 +297,14 @@
 				22B661D01B99DE41003E7774 /* top_half_bg@2x.png in Resources */,
 				228C522D1B97D5DA00A9D604 /* LaunchScreen.storyboard in Resources */,
 				228C528B1B98957D00A9D604 /* left_barbtn_against_img_normal@2x.tiff in Resources */,
+				22EA331B1B9A8F4200399811 /* Chat_Bubble_Friend@2x.tiff in Resources */,
 				228C52841B97FF5200A9D604 /* right_barbtn_bg_selected@2x.png in Resources */,
+				22EA331D1B9A8F4200399811 /* login_btn_bg@2x.tiff in Resources */,
 				228C528D1B98957D00A9D604 /* left_barbtn_agree_img_normal@2x.tiff in Resources */,
 				228C528E1B98957D00A9D604 /* left_barbtn_agree_img_selected@2x.tiff in Resources */,
 				228C522A1B97D5DA00A9D604 /* Assets.xcassets in Resources */,
 				22B661CF1B99DE41003E7774 /* bot_half_bg@2x.png in Resources */,
+				22EA331C1B9A8F4200399811 /* Chat_Bubble_Myself@2x.tiff in Resources */,
 				228C52281B97D5DA00A9D604 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
