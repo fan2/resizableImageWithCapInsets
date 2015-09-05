@@ -24,3 +24,9 @@ demo for stretchable/resizable UIImage
 
 4.增加纵向UIImageView胶囊贴图效果：
 ![增加纵向UIImageView胶囊](https://github.com/fan2/resizableImage/blob/master/ScreenShots/5-%E7%BA%B5%E5%90%91%E8%83%B6%E5%9B%8A%E8%B4%B4%E5%9B%BE%E6%95%88%E6%9E%9C.png)
+
+5.增加登录按钮贴图效果：
+![增加登录按钮贴图效果](https://github.com/fan2/resizableImage/blob/master/ScreenShots/6-%E7%99%BB%E5%BD%95%E6%8C%89%E9%92%AE%E8%B4%B4%E5%9B%BE%E6%95%88%E6%9E%9C.png)
+
+6.增加微信聊天气泡效果：
+![增加登录按钮贴图效果](https://github.com/fan2/resizableImage/blob/master/ScreenShots/7-%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%B0%94%E6%B3%A1%E6%95%88%E6%9E%9C.png)
