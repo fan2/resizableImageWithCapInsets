@@ -64,7 +64,6 @@ testResizableBubble 例程演示了类微信聊天气泡拉伸效果的实现。
 方式1：stretching 中心点，箭头中心点会被纵向拉伸！
 
 ```
-// 方式1：stretching中心点，箭头中心点会被纵向拉伸！
 friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:CENTER_PIXEL_CAPINSETS_OF_IMAGE(friendBubbleBgImg) /*resizingMode:UIImageResizingModeTile*/]; // 默认Stretch，可测试Tile
 ```
 
@@ -87,6 +86,7 @@ friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:UIEdgeInsetsM
 ![FRIEND_BUBBLE_CAPINSETS](ScreenShots/testResizableBubble/FRIEND_BUBBLE_CAPINSETS.png)
 
 ## testCapsuleRoundedButton
+testCapsuleRoundedButton 例程演示了横向半椭圆封盖属性的应用。
 
 > 点击按钮为选择态，背景变蓝，字体变白，图标改变。
 > 左按钮为左图标右标题，右按钮为***左标题右图标***，图标和标题间距为 8pt。
@@ -98,6 +98,27 @@ friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:UIEdgeInsetsM
 + 按钮图标及标题的间距控制（imageView/titleLabel EdgeInsets）：  
   	> -[UIButton *setImageEdgeInsets*:]   
 	> -[UIButton *setTitleEdgeInsets*:]   
+
+### resizable Background Image
+方式1：stretching 中心点，纵向拉伸椭圆圆角部分至顶，导致右侧纵向饱满部分也向上鼓胀。
+
+```
+RESIZABLE_IMAGE_BY_STRETCHING_CENTER_PIXEL(leftNorBgImg);
+```
+
+方式2：stretching 右侧点，保留左侧椭圆，右侧正确拉伸。但是按下态不正常！
+
+```
+RESIZABLE_IMAGE_BY_INTERIOR_PIXEL(leftNorBgImg, BARBTN_CORNER_RADIUS, BARBTN_CORNER_RADIUS);
+```
+
+方式3：tiling 右侧围封的非椭圆区矩形部分，实现预期拉伸效果！
+
+```
+leftNorBgImg = [leftNorBgImg resizableImageWithCapInsets:LEFT_BARBTN_CAPINSETS /*resizingMode:UIImageResizingModeStretch*/]; // 默认Tile，可测试Stretch
+```
+
+![LEFT_BARBTN_CAPINSETS](ScreenShots/testCapsuleRoundedButton/LEFT_BARBTN_CAPINSETS.png)
 
 ### UIButton's EdgeInsets
 
