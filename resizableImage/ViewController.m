@@ -122,8 +122,8 @@
     // 方式1：stretching中心点，箭头中心点会被纵向拉伸！
     // friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:CENTER_PIXEL_CAPINSETS_OF_IMAGE(friendBubbleBgImg) /*resizingMode:UIImageResizingModeTile*/]; // 默认Stretch，可测试Tile
     // 方式2：tiling中间围封的矩形部分：
-    // (5, 11, 4, 4)：默认tile模式下左侧纵向填充出现3个箭头；指定stretch下箭头会沿中心点纵向拉伸钝化。
-    // friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:UIEdgeInsetsMake(5, 11, 4, 4) /*resizingMode:UIImageResizingModeStretch*/]; // 默认Tile，可测试Stretch
+    // (4, 11, 4, 4)：默认tile模式下左侧纵向填充出现3个箭头；指定stretch下箭头会沿中心点纵向拉伸钝化。
+    // friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:UIEdgeInsetsMake(4, 11, 4, 4) /*resizingMode:UIImageResizingModeStretch*/]; // 默认Tile，可测试Stretch
     // (21, 11, 4, 4)：保留箭头所在左上部分，右下方向填充/拉伸。
     friendBubbleBgImg = [friendBubbleBgImg resizableImageWithCapInsets:UIEdgeInsetsMake(21, BUBBLE_ANGLE_SIDE_MARGIN, BUBBLE_CORNER_RADIUS, BUBBLE_CORNER_RADIUS) /*resizingMode:UIImageResizingModeStretch*/]; // 默认Tile，可测试Stretch
     /*NSLog(@"friendBubbleBgImg.size=%@, _friendBubbleImgView.frame=%@",
