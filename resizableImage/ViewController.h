@@ -10,18 +10,18 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *btnLogin;
-
-@property (weak, nonatomic) IBOutlet UIImageView *friendBubbleImgView;
-@property (weak, nonatomic) IBOutlet UILabel *friendBubbleMsg;
-@property (weak, nonatomic) IBOutlet UIImageView *myselfBubbleImgView;
-@property (weak, nonatomic) IBOutlet UILabel *myselfBubbleMsg;
-
-@property (weak, nonatomic) IBOutlet UIButton *btnLeftAgree;
-@property (weak, nonatomic) IBOutlet UIButton *btnRightAgainst;
-
 @property (weak, nonatomic) IBOutlet UIImageView *topImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *botImgView;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@property (weak, nonatomic) IBOutlet UIImageView *friendBubbleImgView;
+@property (weak, nonatomic) IBOutlet UILabel *friendMsgLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *myselfBubbleImgView;
+@property (weak, nonatomic) IBOutlet UILabel *myselftMsgLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *leftAgreeButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightAgainstButton;
 
 - (IBAction)onLeftBtnClick:(id)sender;
 - (IBAction)onRightBtnClick:(id)sender;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +19,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae0-ej-Hje" userLabel="BtnAgree">
                                 <rect key="frame" x="40" y="520" width="260" height="40"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FeH-wl-mTw"/>
                                 </constraints>
@@ -30,7 +29,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPB-R8-0qC" userLabel="BtnAgainst">
                                 <rect key="frame" x="300" y="520" width="260" height="40"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xcd-9v-yf6"/>
                                 </constraints>
@@ -41,50 +39,42 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-pQ-Xlc" userLabel="topImageView">
                                 <rect key="frame" x="60" y="40" width="479" height="40"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Otw-69-CbV"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-xB-udW" userLabel="botImageView">
                                 <rect key="frame" x="60" y="85" width="479" height="80"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Yix-k6-R3R"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-Mk-MQW" userLabel="BtnLogin">
                                 <rect key="frame" x="60" y="205" width="479" height="40"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Qnr-G9-uh4"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GUD-Yn-Rzs" userLabel="friendBubbleImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GUD-Yn-Rzs" userLabel="imgViewFriendBubble">
                                 <rect key="frame" x="60" y="253" width="420" height="96"/>
-                                <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvV-Qt-Vyu" userLabel="friendBubbleMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvV-Qt-Vyu" userLabel="labelFriendMsg">
                                 <rect key="frame" x="249" y="290" width="42" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFQ-oM-OsA" userLabel="myselfBubbleImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFQ-oM-OsA" userLabel="imgViewMyselfBubble">
                                 <rect key="frame" x="120" y="369" width="419" height="91"/>
-                                <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-4W-c10" userLabel="myselfBubbleMsg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2f-4W-c10" userLabel="labelMyselfMsg">
                                 <rect key="frame" x="308" y="401" width="42" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cFQ-oM-OsA" firstAttribute="trailing" secondItem="i2f-4W-c10" secondAttribute="trailing" constant="20" id="3tK-RH-dRr"/>
@@ -121,13 +111,13 @@
                     </view>
                     <connections>
                         <outlet property="botImgView" destination="8sH-xB-udW" id="bvx-jb-LjP"/>
-                        <outlet property="btnLeftAgree" destination="ae0-ej-Hje" id="auf-bN-tfO"/>
-                        <outlet property="btnLogin" destination="zv2-Mk-MQW" id="Idb-9g-SKT"/>
-                        <outlet property="btnRightAgainst" destination="PPB-R8-0qC" id="Cbw-nB-92g"/>
                         <outlet property="friendBubbleImgView" destination="GUD-Yn-Rzs" id="BA1-vh-rVc"/>
-                        <outlet property="friendBubbleMsg" destination="qvV-Qt-Vyu" id="ufV-18-mWb"/>
+                        <outlet property="friendMsgLabel" destination="qvV-Qt-Vyu" id="ufV-18-mWb"/>
+                        <outlet property="leftAgreeButton" destination="ae0-ej-Hje" id="auf-bN-tfO"/>
+                        <outlet property="loginButton" destination="zv2-Mk-MQW" id="FoN-9h-TOa"/>
                         <outlet property="myselfBubbleImgView" destination="cFQ-oM-OsA" id="p27-3Z-QCI"/>
-                        <outlet property="myselfBubbleMsg" destination="i2f-4W-c10" id="3Vx-jr-pgE"/>
+                        <outlet property="myselftMsgLabel" destination="i2f-4W-c10" id="3Vx-jr-pgE"/>
+                        <outlet property="rightAgainstButton" destination="PPB-R8-0qC" id="Cbw-nB-92g"/>
                         <outlet property="topImgView" destination="l8q-pQ-Xlc" id="Qux-gF-sux"/>
                     </connections>
                 </viewController>
