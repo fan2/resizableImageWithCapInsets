@@ -52,9 +52,11 @@
 - (void) testVerticalResizable
 {
     // UIImageView's default contentMode is UIViewContentModeScaleToFill if the image is not resizable
-    /// 上半部背景
+    /// 上半部背景，由于图片资源命名都是冠以@2x后缀的二倍图，UIImage.scale=2，故UIImage.size为逻辑point度量。
     UIImage* topBgImage = [UIImage imageNamed:@"top_half_bg.png"];
-    NSLog(@"topBgImage.resizingMode=%zd, topBgImage.capInsets=%@.",
+    NSLog(@"topBgImage.scale=%0.2f, topBgImage.size=%@, topBgImage.resizingMode=%zd, topBgImage.capInsets=%@.",
+          topBgImage.scale,
+          NSStringFromCGSize(topBgImage.size),
           topBgImage.resizingMode, // 默认为UIImageResizingModeTile
           NSStringFromUIEdgeInsets(topBgImage.capInsets)); // 默认为UIEdgeInsetsZero
     
