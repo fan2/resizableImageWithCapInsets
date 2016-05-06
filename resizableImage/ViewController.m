@@ -145,7 +145,9 @@
     _myselfBubbleImgView.image = myselfBubbleBgImg;
 }
 
-// 默认图标在左侧，标题在右侧，间隔0.5pt（1pixel），整体居中(UIControlContentVerticalAlignmentCenter/UIControlContentHorizontalAlignmentCenter)
+// 默认图标在左侧，标题在右侧，间隔0.5pt（1pixel），整体居中(UIControlContentVerticalAlignmentCenter/UIControlContentHorizontalAlignmentCenter)。
+// 横向基于 contentHorizontalAlignment（UIControlContentHorizontalAlignmentCenter）排版后，
+// 设置UIEdgeInsets{top, left, bottom, right}，表示右移left/2，左移right/2。如为负数，则反向偏移。
 - (void) testLeftRoundedButton
 {
     ////------------------------------------------------------------------------
@@ -193,6 +195,9 @@
     
 #if 0
     // test1: setImageEdgeInsets
+    //          titleLabel.frame不变，imageView.origin.x右移4pt，
+    //          imageView右侧与titleLabel左侧间隔-4pt（扣除默认的0.5pt）。
+    // [_leftAgreeButton setImageEdgeInsets:UIEdgeInsetsMake(0, 8, 0, 0)];
     //          titleLabel.frame不变，imageView.origin.x左移4pt，
     //          imageView右侧与titleLabel间隔4pt（扣除默认的0.5pt）。
     [_leftAgreeButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 8)];
