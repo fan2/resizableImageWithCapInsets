@@ -291,6 +291,10 @@
     // 图标继续右移4pt，最终左侧标题和右侧图标间距8pt
     [_rightAgainstButton setImageEdgeInsets:UIEdgeInsetsMake(0, rightBtnTitleWidth+4, 0, -rightBtnTitleWidth-4)];
     
+    // 一步到位：图标右侧移动 rightBtnTitleWidth+4，标题左移 rightBtnImageWidth+4。图标和标题互换位置后，整体依然居中，拉开间隔为8pt。
+    // [_rightAgainstButton setImageEdgeInsets:UIEdgeInsetsMake(0, 2*(rightBtnTitleWidth+4), 0, 0)];
+    // [_rightAgainstButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 2*(rightBtnImageWidth+4))];
+    
     NSLog(@"_cmd = %@", NSStringFromSelector(_cmd));
     
     // 打印控件布局
